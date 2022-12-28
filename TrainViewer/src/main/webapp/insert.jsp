@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <title>InsertTrain Admin</title>
 </head>
-<body class="bg-dark">
+<body class="bg-white">
 	<jsp:include page="menu.jsp"></jsp:include>
 	<div class="ms-loader">
 		<div class="track"></div>

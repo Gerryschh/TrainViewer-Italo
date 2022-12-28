@@ -21,7 +21,7 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
 </head>
-<body class="bg-dark">
+<body class="bg-white">
 
 	<jsp:include page="menu.jsp"></jsp:include>
 

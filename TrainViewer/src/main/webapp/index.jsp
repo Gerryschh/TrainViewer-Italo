@@ -15,9 +15,11 @@
 <link rel="stylesheet" href="css/styles.css">
 <title>TrainViewer</title>
 </head>
-<body class="bg-dark">
+<body class="bg-white">
 
 	<jsp:include page="menu.jsp"></jsp:include>
+
+
 
 </body>
 </html>

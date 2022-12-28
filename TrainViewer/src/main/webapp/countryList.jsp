@@ -23,7 +23,7 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 <link rel="stylesheet" href="css/styles.css">
 <title>TrainViewer</title>
 </head>
-<body class="bg-dark">
+<body class="bg-white">
 
 	<jsp:include page="menu.jsp"></jsp:include>
 
@@ -31,9 +31,9 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 
 	<div class="container">
 
-		<h1 class="py-4 text-center text-white bg-dark">Country Table</h1>
+		<h1 class="py-4 text-center">Country Table</h1>
 
-		<table class="table table-dark table-striped">
+		<table class="table table-white table-striped">
 			<thead>
 				<tr>
 					<th scope="col">Country</th>
