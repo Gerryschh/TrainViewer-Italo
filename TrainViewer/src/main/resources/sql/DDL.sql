@@ -15,7 +15,6 @@ CREATE TABLE alias (
   country_name VARCHAR(50) NOT NULL,
   approved BOOLEAN DEFAULT FALSE NOT NULL,
   algorithm VARCHAR(20) NOT NULL,
-  soglia DOUBLE(3,2) DEFAULT 1 NOT NULL,
   FOREIGN KEY (country_name) REFERENCES country(country_name)
   		ON UPDATE CASCADE
   		ON DELETE CASCADE

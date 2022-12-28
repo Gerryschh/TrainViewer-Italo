@@ -33,6 +33,7 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 					<tr>
 						<th scope="col">Alias</th>
 						<th scope="col">Country</th>
+						<th scope="col">Algorithm</th>
 						<th scope="col">Approved</th>
 					</tr>
 				</thead>
@@ -46,6 +47,7 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 						%>
 						<td><%=a.getAlias()%></td>
 						<td><%=a.getCountry().getCountryName()%></td>
+						<td><%=a.getAlgorithm()%></td>
 						<td><input type="checkbox" name="checkAlias"
 							value="<%=a.getAlias()%>"></td>
 					</tr>

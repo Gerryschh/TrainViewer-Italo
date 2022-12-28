@@ -23,6 +23,7 @@ public abstract class CheckChain {
 			a.setAlias(input);
 			a.setCountry(cdao.get(result));
 			a.setApproved(false);
+			a.setAlgorithm(this.getClass().getSimpleName());
 			dao.create(a);
 			System.out.println("Il risultato è "+result);
 			return result;
