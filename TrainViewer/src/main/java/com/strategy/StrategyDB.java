@@ -88,6 +88,7 @@ public class StrategyDB implements Strategy{
 		for (Object[] o: aliases) {
 			Alias a = new Alias();
 			a.setAlias((String) o[0]);
+			a.setAlgorithm((String) o[3]);
 			Country c = new Country();
 			c.setCountryName((String) o[1]);
 			a.setCountry(c);

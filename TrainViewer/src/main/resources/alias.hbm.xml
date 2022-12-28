@@ -9,6 +9,7 @@
     <id name="alias" column="alias_country"></id>  
    	<many-to-one name="country" class="com.beans.Country" column="country_name"></many-to-one>
    	<property name="approved" column="approved"></property>
+   	<property name="algorithm" column="algorithm"></property>
             
   </class>  
             

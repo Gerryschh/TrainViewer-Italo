@@ -4,6 +4,15 @@ public class Alias implements Bean {
 	private String alias;
 	private Country country;
 	private boolean approved;
+	private String algorithm;
+
+	public String getAlgorithm() {
+		return algorithm;
+	}
+
+	public void setAlgorithm(String algorithm) {
+		this.algorithm = algorithm;
+	}
 
 	public boolean isApproved() {
 		return approved;
