@@ -1,4 +1,4 @@
-USE trainViewer;
+USE trainViewerItalo;
 
 INSERT INTO Country (country_name, alpha2_code) VALUES
 ('Afghanistan','AF'),
@@ -248,3 +248,6 @@ INSERT INTO Country (country_name, alpha2_code) VALUES
 ('Yemen','YE'),
 ('Zambia','ZM'),
 ('Zimbabwe','ZW');
+
+INSERT INTO train (matricola_treno, departure, arrive) VALUES
+('HPPPPR','Afghanistan','Italia')
