@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.beans.Train" table="train">  
+  	
+  	<id name="idTrain" column="id_train">
+  	<generator class="increment"></generator>
+  	</id>
+  	<property name="matTrain" column="mat_train"></property>
+  	<many-to-one name="departure" class="com.beans.Country" column="country_name"></many-to-one>
+  	<many-to-one name="arrival" class="com.beans.Country" column="country_name"></many-to-one>
+
+  </class>  
+            
+ </hibernate-mapping> 

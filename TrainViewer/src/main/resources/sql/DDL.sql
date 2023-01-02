@@ -28,21 +28,21 @@ CREATE TABLE alias_unknown (
 DROP TABLE IF EXISTS train;
 CREATE TABLE train (
   id_train INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  matricola_treno VARCHAR(10) NOT NULL,
+  mat_train VARCHAR(10) NOT NULL,
   departure VARCHAR(50) NOT NULL,
-  arrive VARCHAR(50) NOT NULL,
+  arrival VARCHAR(50) NOT NULL,
   FOREIGN KEY (departure) REFERENCES country(country_name) 
   		ON UPDATE CASCADE
   		ON DELETE CASCADE,
-  	FOREIGN KEY (arrive) REFERENCES country(country_name) 
+  	FOREIGN KEY (arrival) REFERENCES country(country_name) 
   		ON UPDATE CASCADE
   		ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS userr;
 CREATE TABLE userr (
-  user_name VARCHAR(20) NOT NULL PRIMARY KEY,
+  user_mail VARCHAR(50) NOT NULL PRIMARY KEY,
   user_password VARCHAR(20) NOT NULL,
-  user_mail VARCHAR(50) NOT NULL,
-  isAdmin BOOLEAN DEFAULT FALSE NOT NULL
+  user_name VARCHAR(20) NOT NULL,
+  is_admin BOOLEAN DEFAULT FALSE NOT NULL
 );
