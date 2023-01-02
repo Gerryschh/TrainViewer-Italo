@@ -25,7 +25,7 @@
 
 	<jsp:include page="menu.jsp"></jsp:include>
 	
-	<section class="ms-carousel">
+	<section class="ms-carousel mb-4">
 		<div id="carouselExampleAutoplaying" class="carousel slide" id="carousel" data-bs-ride="carousel">
 		  <div class="carousel-indicators">
 		    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -54,53 +54,104 @@
 		</div>
 	</section>
 	
-	<section class="ms-discount">
+	<section class="ms-container">
+		<div class="text-center">
+			<h2>Offerte</h2>
+		
+			<p>Scopri le offerte biglietti treno di Italo, risparmia con i codici promo e iscriviti per accedere alle offerte dedicate ai soli clienti Italo Più.</p>
+		</div>
+		
+		<div class="row row-cols-4 justify-content-around">
+		
+			<div class="card col-4" style="width: 18rem;">
+			  <img src="img/gift_card_583x390.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <h5 class="card-title">Iscriviti a Italo Più e scopri le Gift Card, -10% di sconto per te</h5>
+			    <p class="card-text">Fino al 9.01.2023 approfitta dello sconto del -10% e regala le Gift Card Italo</p>
+			    <a href="#" class="btn btn-primary">SCOPRI</a>
+			  </div>
+			</div>
+			
+			<div class="card col-4" style="width: 18rem;">
+			  <img src="img/tratta_milano_siena_586x390.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <h5 class="card-title">Collegamenti Milano - Siena da 22,70&#8364;</h5>
+			    <p class="card-text">Da Milano a Firenze con Treno Italo Alta Velocità a partire da 12,90&#8364; + treno regionale di Trenitalia da Firenze a Siena a 9,80&#8364;</p>
+			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			  </div>
+			</div>
+			
+			<div class="card col-4" style="width: 18rem;">
+			  <img src="img/carnet_impresa_586x390.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <h5 class="card-title">Carnet Italo Impresa, risparmia sui viaggi di lavoro</h5>
+			    <p class="card-text">Massima flessibilità con cambi biglietto gratuiti e illimitati e risparmi fino al 60% sui viaggi di lavoro.</p>
+			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			  </div>
+			</div>
+			
+			<div class="card col-4" style="width: 18rem;">
+			  <img src="img/business_586x390.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <h5 class="card-title">Italo Business Pass, fino al -40% per la tua impresa</h5>
+			    <p class="card-text">1.000&#8364; di biglietti Italo al costo di soli 600&#8364;, per viaggiare dove vuoi.</p>
+			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			  </div>
+			</div>
+		
+		</div>
+	</section>
 	
-	<div class="ms-card-container row justify-content-between">
-        <div class="ms-card col">
-            <div class="face face1">
-                <div class="content">
-                    <img src="img/train-solid.png">
-                    <h3>Italo Più</h3>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <p>Iscriviti a Italo Più e scopri le Gift Card, -10% di sconto per te</p>
-                        <a href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="ms-card col">
-            <div class="face face1">
-                <div class="content">
-                    <img src="img/earth-europe-solid.png">
-                    <h3>Nuovi Collegamenti</h3>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <p>Da Milano a Firenze con Treno Italo Alta Velocità a partire da 12,90&#8364; + treno regionale di Trenitalia da Firenze a Siena a 9,80&#8364;</p>
-                        <a href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="ms-card col">
-            <div class="face face1">
-                <div class="content">
-                    <img src="img/briefcase-solid.png">
-                    <h3>Italo Business Pass</h3>
-                </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <p>Fino al -40% per la tua impresa : 1.000 &#8364; di biglietti Italo al costo di soli 600 &#8364;, per viaggiare dove vuoi.</p>
-                        <a href="#">Read More</a>
-                </div>
-            </div>
-        </div>
+	
+	
+	<section class="ms-news">
+	
+	<div class="ms-news-card">
+		<div class="ms-card-container row justify-content-between">
+	        <div class="ms-card col">
+	            <div class="face face1">
+	                <div class="content">
+	                    <img src="img/train-solid.png">
+	                    <h3>Italo Più</h3>
+	                </div>
+	            </div>
+	            <div class="face face2">
+	                <div class="content">
+	                    <p>Iscriviti a Italo Più e scopri le Gift Card, -10% di sconto per te</p>
+	                        <a href="#">Read More</a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="ms-card col">
+	            <div class="face face1">
+	                <div class="content">
+	                    <img src="img/earth-europe-solid.png">
+	                    <h3>Nuovi Collegamenti</h3>
+	                </div>
+	            </div>
+	            <div class="face face2">
+	                <div class="content">
+	                    <p>Da Milano a Firenze con Treno Italo Alta Velocità a partire da 12,90&#8364; + treno regionale di Trenitalia da Firenze a Siena a 9,80&#8364;</p>
+	                        <a href="#">Read More</a>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="ms-card col">
+	            <div class="face face1">
+	                <div class="content">
+	                    <img src="img/briefcase-solid.png">
+	                    <h3>Italo Business Pass</h3>
+	                </div>
+	            </div>
+	            <div class="face face2">
+	                <div class="content">
+	                    <p>Fino al -40% per la tua impresa : 1.000 &#8364; di biglietti Italo al costo di soli 600 &#8364;, per viaggiare dove vuoi.</p>
+	                        <a href="#">Read More</a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
     </div>
-	
 	
 	</section>
 	

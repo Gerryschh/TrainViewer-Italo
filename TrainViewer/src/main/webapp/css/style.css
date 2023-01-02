@@ -1,4 +1,9 @@
 
+.ms-container {
+	margin: 0 auto;
+	width: 90%;
+}
+
 /*LANDING PAGE*/
 
 :root {
@@ -35,7 +40,7 @@ img {
 
 /*CARD*/
 
-.ms-discount {
+.ms-news-card {
     margin: 0;
     padding: 0;
     display: flex;
