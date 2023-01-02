@@ -4,7 +4,7 @@ public class User implements Bean {
 	private String userMail;
 	private String password;
 	private String userName;
-	private boolean isAdmin;
+	private boolean admin;
 	
 	public String getUserMail() {
 		return userMail;
@@ -25,9 +25,9 @@ public class User implements Bean {
 		this.userName = userName;
 	}
 	public boolean isAdmin() {
-		return isAdmin;
+		return admin;
 	}
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}	
 }
