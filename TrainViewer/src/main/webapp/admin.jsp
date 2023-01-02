@@ -11,8 +11,8 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Page</title>
-<!-- CSS only -->
-<link rel="stylesheet" href="css/style.css">
+<!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Bootstrap -->
 <link
@@ -20,6 +20,8 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
+<!-- CSS only -->
+<link rel="stylesheet" href="css/style.css">
 	
 	<!-- SCRIPT -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
@@ -68,5 +70,6 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 
 
 	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
