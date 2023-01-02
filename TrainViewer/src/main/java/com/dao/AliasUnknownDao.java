@@ -1,6 +1,5 @@
 package com.dao;
 
-import com.beans.Alias;
 import com.beans.AliasUnknown;
 
 public interface AliasUnknownDao {
