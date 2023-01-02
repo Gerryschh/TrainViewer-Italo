@@ -10,19 +10,24 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
 import com.connectionDB.ConnectionToDB;
-import com.dao.AliasDao;
-import com.dao.AliasUnknownDao;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
+import com.dao.impl.TrainDaoImpl;
+import com.dao.impl.UserDaoImpl;
+import com.dao.AliasUnknownDao;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
+import com.beans.Train;
+import com.beans.User;
 
 public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
 	static Session session = ConnectionToDB.getSession();
 	private AliasUnknownDao unknownDao = new AliasUnknownDaoImpl();
 	private AliasDaoImpl aliasDao = new AliasDaoImpl();
+	private UserDaoImpl userDao = new UserDaoImpl();
+	private TrainDaoImpl trainDao = new TrainDaoImpl();
 	private Map<String,List<String>> dataMap;
 	public String getAliasCountry(String input) {
 	    String query = "select nome_paese from alias where alias_paese = " + input;
@@ -30,6 +35,40 @@ public class StrategyDB implements Strategy{
 	    return q.getSingleResult();
 	}	
 
+	/*
+	 * METODI ADD
+	 */
+
+	@Override
+	public void addAliasUnknown(String input) {
+		AliasUnknown au = new AliasUnknown();
+		au.setUnknown(input);
+		unknownDao.create(au);
+	}
+	
+	
+	@Override
+	public void addUser(String userMail, String password, String userName) {
+		User u = new User();
+		u.setUserMail(userMail);
+		u.setPassword(password);
+		u.setUserName(userName);
+		userDao.create(u);
+	}
+	
+	@Override
+	public void addTrain(String matTrain, String departure, String arrival) {
+		Train t = new Train();
+		t.setMatTrain(matTrain);
+		t.setDeparture(departure);
+		t.setArrival(arrival);
+		trainDao.create(t);
+	}	
+	
+	
+	/*
+	 * METODI GET
+	 */
 	
 	public Map<String,List<String>> dataMap() {
         NativeQuery<String> q = session.createSQLQuery("Select country_name From country");
@@ -49,15 +88,9 @@ public class StrategyDB implements Strategy{
         return map;
     }
 	
-	public void addAliasUnknown(String input) {
-		AliasUnknown au = new AliasUnknown();
-		au.setUnknown(input);
-		unknownDao.create(au);
-	}
 	
 	@Override
 	public Set<String> getCountryNames() {
-		// TODO Auto-generated method stub
 		return dataMap.keySet();
 	}
 
@@ -78,7 +111,6 @@ public class StrategyDB implements Strategy{
 		return cc;
 	}
 
-
 	@Override
 	public Collection<Alias> getUnapprovedAliases() {
 		Collection<Alias> ca = new LinkedList <Alias>();
@@ -89,6 +121,7 @@ public class StrategyDB implements Strategy{
 			Alias a = new Alias();
 			a.setAlias((String) o[0]);
 			a.setAlgorithm((String) o[3]);
+			a.setApproved(false);
 			Country c = new Country();
 			c.setCountryName((String) o[1]);
 			a.setCountry(c);
@@ -96,8 +129,51 @@ public class StrategyDB implements Strategy{
 		}
 		return ca;
 	}
+	
+	@Override
+	public User getUserByMail(String userMail) {
+		User u = userDao.get(userMail);
+		return u;
+	}
+	
+	@Override
+	public Collection<Train> getAllTrains() {
+		Collection<Train> ct = new LinkedList <Train>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train");
+        List<Object[]> trains = mq.list();
+        
+		for (Object[] o: trains) {
+			Train t = new Train();
+			t.setIdTrain((Integer) o[0]);
+			t.setMatTrain((String) o[1]);
+			t.setDeparture((String) o[2]);
+			t.setArrival((String) o[3]);
+			ct.add(t);
+		}
+		return ct;
+	}
+	
+	@Override
+	public Collection<User> getAllUsers() {
+		Collection<User> cu = new LinkedList <User>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from userr where is_admin = 0");
+        List<Object[]> users = mq.list();
+        
+		for (Object[] o: users) {
+			User u = new User();
+			u.setUserMail((String) o[0]);
+			u.setPassword((String) o[1]);
+			u.setUserName((String) o[2]);
+			u.setAdmin(false);
+			cu.add(u);
+		}
+		return cu;
+	}
 
-
+	/*
+	 * METODI SET
+	 */
+	
 	@Override
 	public void approveAlias(String[] list) {
 		for(String s : list)
@@ -110,5 +186,4 @@ public class StrategyDB implements Strategy{
 		}
 		aliasDao.getSession().close();
 	}
-	
 }

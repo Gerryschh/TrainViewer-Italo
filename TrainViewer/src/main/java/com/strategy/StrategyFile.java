@@ -4,7 +4,6 @@ import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +13,8 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
+import com.beans.Train;
+import com.beans.User;
 
 public class StrategyFile implements Strategy {
 	
@@ -93,5 +94,30 @@ public class StrategyFile implements Strategy {
 	public void approveAlias(String[] list) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void addUser(String user_mail, String password, String user_name) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public User getUserByMail(String userMail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void addTrain(String matTrain, String departure, String arrival) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Collection<Train> getAllTrains() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Collection<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
