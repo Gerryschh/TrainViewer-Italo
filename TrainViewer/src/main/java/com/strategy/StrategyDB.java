@@ -169,6 +169,28 @@ public class StrategyDB implements Strategy{
 		}
 		return cu;
 	}
+	
+	public User checkUser(String email, String password) {
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from userr where user_mail =" + email + " and user_password = " +  password );
+		System.out.println(mq);
+        List<Object[]> users = mq.list();
+        
+		for (Object[] o: users) {
+			User u = new User();
+			u.setUserMail((String) o[0]);
+			u.setPassword((String) o[1]);
+			u.setUserName((String) o[2]);
+			u.setAdmin((boolean) o[3]);
+			
+		return u;
+			
+		}
+		return null;
+		
+		
+	}
+	
+
 
 	/*
 	 * METODI SET

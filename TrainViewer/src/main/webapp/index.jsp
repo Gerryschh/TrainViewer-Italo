@@ -17,19 +17,9 @@
 </head>
 <body class="bg-white">
 
-<%
- String email = (String) session.getAttribute("email");
- if(email==null) {
- %>
- <jsp:include page="login.jsp"></jsp:include>
- <%
- } else {
- %>
-	<jsp:include page="menu.jsp"></jsp:include>
+<jsp:include page="menu.jsp"></jsp:include>
 	
-<%
- }
-%>
+
 
 </body>
 </html>

@@ -26,6 +26,7 @@ public interface Strategy {
 	public User getUserByMail(String userMail);
 	public Collection<Train> getAllTrains();
 	public Collection<User> getAllUsers();
+	public User checkUser(String email, String password);
 	
 	//Metodi SET
 	public void approveAlias(String[] list);
