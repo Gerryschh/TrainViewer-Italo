@@ -187,3 +187,24 @@ img {
 audio {
     display: none;
 }
+
+/* LOGIN */
+.card-login {
+	border-style: outset;
+	border-color: dark-grey;
+	box-shadow: 3px 3px var(--red);
+}
+
+.btn-user {
+	background-color: var(--red);
+ 	color: white;
+ 	padding: 12px 15px;
+ 	border: none;
+ 	cursor: pointer;
+ 	width: 60%;
+ 	opacity: 0.9;
+ 	margin: 10px 0px 0px 20px;
+}
+
+
+

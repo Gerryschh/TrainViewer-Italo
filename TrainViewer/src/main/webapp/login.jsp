@@ -13,12 +13,14 @@
 	crossorigin="anonymous">
 <script src="handlerLogin.js"></script>
 <!-- CSS only -->
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/style.css">
 <title>TrainViewer</title>
 </head>
 <body class="bg-white">
 
 <jsp:include page="menu.jsp"></jsp:include>
+
+
 <%
 if(session.getAttribute("email") != null && session.getAttribute("error") != null){
 	%>
@@ -27,14 +29,30 @@ if(session.getAttribute("email") != null && session.getAttribute("error") != nul
 	session.removeAttribute("error");
 } 
 %>
-<form id="login-form" onsubmit="return handleSubmit()" action="LoginServlet" method="POST">
-	<label for="email">Email:</label><br/>
-	<input type="text" id="email" name="email" required><br/>
-	<label for="password">Password:</label><br/>
-	<input type="password" id="password" name="password" required><br/>
+
+
+
+<section class="ms-container">
+		<div class="row justify-content-around">
+		
+			<div class="card card-login" style="width: 18rem;">
+			  <img src="img/ITALO_logo.png" class="card-img-top" alt="...">
+			  <div class="card-body">
+			  	<form id="login-form" onsubmit="return handleSubmit()" action="LoginServlet" method="POST">
+					<label for="email">Email:</label><br/>
+					<input type="text" id="email" name="email" required><br/>
+					<label for="password">Password:</label><br/>
+					<input type="password" id="password" name="password" required><br/>
 	
-	<input type="submit" value="Accedi">
-</form>
+					<input class="btn-user" type="submit" value="Accedi">
+				</form>
+			  </div>
+			</div>
+		</div>
+</section>
+
+
+
 
 </body>
 </html>

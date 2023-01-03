@@ -7,19 +7,24 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<%
+			String username = (String) session.getAttribute("username");
+
+			if (username == null) {
+			%>
+			<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+			
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="/TrainViewer/login.jsp"><span>Accedi</span></a>
+					</li>
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="/TrainViewer/register.jsp"><span>Registrati</span></a>
+				</li>
+			</ul>
+			<%
+			} else {
+			%>
 			<ul class="navbar-nav">
-				<%
-				String username = (String) session.getAttribute("username");
-				
-				if (username == null) {
-				%>
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/login.jsp"><span>Accedi</span></a></li>
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/register.jsp"><span>Registrati</span></a></li>
-				<%
-				} else {
-				%>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
 					href="/TrainViewer/countryList.jsp"><span>CountryList</span></a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
@@ -30,9 +35,15 @@
 				<li class="nav-item"><a class="nav-link" aria-current="page"
 					href="/TrainViewer/trainGame/trainGame.jsp"><span>TrainGame</span></a>
 				</li>
-				<%
-				}
-				%>
+			</ul>
+			<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+				<li class="nav-item nav-link"><span>Benvenuto, <%= username %></span></li>
+				<li class="nav-item nav-link"><div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div><hr class="d-lg-none my-2 text-black-50"></li>
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="/TrainViewer/index.jsp"><span> <% session.invalidate(); %> Logout </span></a></li>
+			<%
+			}
+			%>
 			</ul>
 		</div>
 	</div>

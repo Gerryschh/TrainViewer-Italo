@@ -13,7 +13,7 @@
 	crossorigin="anonymous">
 <script src="handlerRegistrazione.js"></script>
 <!-- CSS only -->
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/style.css">
 <title>TrainViewer</title>
 </head>
 <body class="bg-white">

@@ -181,8 +181,8 @@ public class StrategyDB implements Strategy{
 			for (Object[] o: users) {
 				User u = new User();
 				String mail = (String) o[0];
-				String password1 = (String) o[0];
-				String name = (String) o[0];
+				String password1 = (String) o[1];
+				String name = (String) o[2];
 
 				u.setUserMail(mail);
 				u.setPassword(password);
