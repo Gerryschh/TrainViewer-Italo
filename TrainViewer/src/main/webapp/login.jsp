@@ -19,8 +19,15 @@
 <body class="bg-white">
 
 <jsp:include page="menu.jsp"></jsp:include>
-	
-<form id="login-form" onsubmit="return handleSubmit()" action="LoginServlet" method="GET">
+<%
+if(session.getAttribute("email") != null && session.getAttribute("error") != null){
+	%>
+	<script> alert("Le credenziali inserite sono errate. ");</script>
+	<%	
+	session.removeAttribute("error");
+} 
+%>
+<form id="login-form" onsubmit="return handleSubmit()" action="LoginServlet" method="POST">
 	<label for="email">Email:</label><br/>
 	<input type="text" id="email" name="email" required><br/>
 	<label for="password">Password:</label><br/>

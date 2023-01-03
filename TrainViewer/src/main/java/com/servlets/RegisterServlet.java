@@ -10,41 +10,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.beans.User;
 import com.strategy.StrategyDB;
 
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet{
-
-	public LoginServlet() {
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet{
+	
+	public RegisterServlet() {
 		super();
 	}
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
+		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		User u = s.checkUser(email,password);
+		s.addUser(email, password, username);
 		HttpSession session = request.getSession(true);
+		System.out.println(session);
 		session.setAttribute("email", email);
+		session.setAttribute("username", username);
 		
-		if(u != null) {
-			session.setAttribute("username", u.getUserName());
-
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-			dispatcher.forward(request, response);
-		} else {
-			session.setAttribute("error", "");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-			dispatcher.forward(request, response);
-		}
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
 	}
-
-
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	
 }

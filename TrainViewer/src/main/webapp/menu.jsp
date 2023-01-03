@@ -10,9 +10,9 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<%
-				String email = (String) session.getAttribute("email");
-				System.out.println(email);
-				if (email == null) {
+				String username = (String) session.getAttribute("username");
+				
+				if (username == null) {
 				%>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
 					href="/TrainViewer/login.jsp"><span>Accedi</span></a></li>
