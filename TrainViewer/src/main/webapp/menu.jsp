@@ -10,48 +10,47 @@
 			<%
 			String username = (String) session.getAttribute("username");
 			
-			System.out.println(username);
-			
 			if(username != null){
 			%>
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/countryList.jsp"><span>CountryList</span></a></li>
+					href="countryList.jsp"><span>CountryList</span></a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/admin.jsp"><span>ApproveAliases Admin</span></a>
+					href="admin.jsp"><span>ApproveAliases Admin</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/insert.jsp"><span>InsertTrain Admin</span></a></li>
+					href="insert.jsp"><span>InsertTrain Admin</span></a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/trainGame/trainGame.jsp"><span>TrainGame</span></a>
+					href="/trainGame/trainGame.jsp"><span>TrainGame</span></a>
 				</li>
 			</ul>
 			<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
 				
 					<li class="nav-item nav-link"><span>Benvenuto, <%= username %></span></li>
 					<li class="nav-item nav-link"><div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div><hr class="d-lg-none my-2 text-black-50"></li>
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="/TrainViewer/index.jsp"><span> <% session.invalidate(); %> Logout </span></a></li>
+					<li class="nav-item">
+						<form id="logout-form" action="LogoutServlet" method="POST">
+						<input type="submit" value="Logout"></form></li>
 				<%
 				} else {
 				%>
 				
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/login.jsp"><span>CountryList</span></a></li>
+					href="login.jsp"><span>CountryList</span></a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/login.jsp"><span>ApproveAliases Admin</span></a>
+					href="login.jsp"><span>ApproveAliases Admin</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/login.jsp"><span>InsertTrain Admin</span></a></li>
+					href="login.jsp"><span>InsertTrain Admin</span></a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/login.jsp"><span>TrainGame</span></a>
+					href="login.jsp"><span>TrainGame</span></a>
 				</li>
 			</ul>
 			<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
 			
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/login.jsp"><span>Accedi/Registrati</span></a>
+					href="login.jsp"><span>Accedi/Registrati</span></a>
 				</li>
 			</ul>
 				<%
