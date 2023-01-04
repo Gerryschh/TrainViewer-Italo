@@ -25,7 +25,7 @@
 </head>
 <body id="b01" onkeydown="checkKeyDown(event);"
 	onkeypress="checkKeyPress(event)">
-	<jsp:include page="../fragments/menu.jsp"></jsp:include>
+	<jsp:include page="../menu.jsp"></jsp:include>
 	<div class="container">
 		<input type="button" onclick="play()" value="Play" class="btnPlay"></input>
 		<input type="button" onclick="mostraMatriceHTML()"

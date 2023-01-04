@@ -18,7 +18,7 @@
 </head>
 <body class="bg-white">
 
-<%@include file="/fragments/menu.jsp" %>
+<%@include file="/menu.jsp" %>
 
 <!-- <jsp:include page="menu.jsp"></jsp:include> -->
 
@@ -49,7 +49,7 @@ if(session.getAttribute("email") != null && session.getAttribute("error") != nul
 					<input class="btn-user" type="submit" value="Accedi">
 				</form>
 				
-				<span>Se non sei registrato, <a href="/TrainViewer/register.jsp">clicca qui!</a></span>
+				<span>Se non sei registrato, <a href="/TrainViewer/register/register.jsp">clicca qui!</a></span>
 			  </div>
 			</div>
 		</div>

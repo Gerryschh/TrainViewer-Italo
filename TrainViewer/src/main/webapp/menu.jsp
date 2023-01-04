@@ -27,16 +27,17 @@
 					<li class="nav-item">
 						<form id="logout-form" action="LogoutServlet" method="POST">
 						<input type="submit" value="Logout"></form></li>
+						</ul>
 				<%
 				} else {
 				%>
 				
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/countrySearch.jsp"><span>Cerca un Treno</span></a></li>
+					href="/TrainViewer/login.jsp"><span>Cerca un Treno</span></a></li>
 					
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/trainGame/trainGame.jsp"><span>TrainGame</span></a>
+					href="/TrainViewer/login.jsp"><span>TrainGame</span></a>
 				</li>
 			</ul>
 			<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
@@ -48,7 +49,6 @@
 				<%
 				}
 				%>
-			</ul>
 		</div>
 	</div>
 </nav>

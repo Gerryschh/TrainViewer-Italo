@@ -18,7 +18,7 @@
 </head>
 <body class="bg-white">
 
-	<jsp:include page="/fragments/menu.jsp"></jsp:include>
+	<jsp:include page="/menu.jsp"></jsp:include>
 
 	<form id="login-form" onsubmit="return handleSubmit()"
 		action="RegisterServlet" method="GET">

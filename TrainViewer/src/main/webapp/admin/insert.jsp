@@ -21,7 +21,7 @@
 <title>InsertTrain Admin</title>
 </head>
 <body class="bg-white">
-	<jsp:include page="/fragments/menu.jsp"></jsp:include>
+	<jsp:include page="/menu.jsp"></jsp:include>
 	<div class="ms-loader">
 		<div class="track"></div>
 		<div class="train"></div>
