@@ -180,13 +180,9 @@ public class StrategyDB implements Strategy{
 		if(users.size() > 0) {
 			for (Object[] o: users) {
 				User u = new User();
-				String mail = (String) o[0];
-				String password1 = (String) o[1];
-				String name = (String) o[2];
-
-				u.setUserMail(mail);
-				u.setPassword(password);
-				u.setUserName(name);
+				u.setUserMail((String) o[0]);
+				u.setPassword((String) o[1]);
+				u.setUserName((String) o[2]);
 				u.setAdmin((boolean) o[3]);
 
 				return u;
