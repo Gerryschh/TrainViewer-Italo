@@ -20,8 +20,8 @@
 
 	<jsp:include page="/menu.jsp"></jsp:include>
 
-	<form id="login-form" onsubmit="return handleSubmit()"
-		action="RegisterServlet" method="GET">
+	<form id="registration-form" onsubmit="return handleSubmit()"
+		action="../RegisterServlet" method="POST">
 		<label for="username">Username:</label> 
 		<input type="text" id="username" name="username" required> 
 		<label for="email">Email:</label> 

@@ -11,7 +11,7 @@
 			String username = (String) session.getAttribute("username");
 			Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
 			
-			if(username != null){
+			if(username != null && isAdmin !=null){
 			%>
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
@@ -35,7 +35,7 @@
 						    <li><a class="dropdown-item" href="/TrainViewer/admin/admin.jsp">Admin Page</a></li>
 						    <% } %>
 						    <li>
-						    	<form id="logout-form" action="LogoutServlet" method="POST">
+						    	<form id="logout-form" action="/TrainViewer/LogoutServlet" method="POST">
 								<input class="ms-logout dropdown-item" type="submit" value="Logout"></form></li>
 							</li>
 						  </ul>

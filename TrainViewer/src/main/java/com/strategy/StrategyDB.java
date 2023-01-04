@@ -55,6 +55,7 @@ public class StrategyDB implements Strategy{
 		u.setUserMail(userMail);
 		u.setPassword(password);
 		u.setUserName(userName);
+		u.setAdmin(false);
 		userDao.create(u);
 	}
 

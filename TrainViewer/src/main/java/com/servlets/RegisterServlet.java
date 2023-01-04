@@ -20,6 +20,10 @@ public class RegisterServlet extends HttpServlet{
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
 		String username = request.getParameter("username");
@@ -27,16 +31,12 @@ public class RegisterServlet extends HttpServlet{
 		String password = request.getParameter("password");
 		s.addUser(email, password, username);
 		HttpSession session = request.getSession(true);
-		System.out.println(session);
 		session.setAttribute("email", email);
 		session.setAttribute("username", username);
+		session.setAttribute("isAdmin", false);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 	
 	
