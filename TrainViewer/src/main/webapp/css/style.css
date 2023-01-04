@@ -26,6 +26,28 @@
 	color: var(--white);
 }
 
+.ms-logout {
+	border: var(--white);
+	background-color: var(--white);
+}
+
+.ms-logout-btn {
+	color: var(--white);
+	background-color: var(--red);
+	border: 1px solid var(--red);
+}
+
+.ms-logout-btn:hover {
+	border: 1px solid var(--white);
+	color: var(--white);
+}
+
+.btn.show {
+	color: var(--red);
+	background-color: var(--white);
+	border: 1px solid var(--red);
+}
+
 /*CAROUSEL*/
 
 .ms-carousel {
@@ -47,14 +69,19 @@ img {
 
 .ms-btn {
 	color: var(--red);
-	background-color: #ffffff;
+	background-color: var(--white);
 	border: 1px solid var(--red);
 }
 
 .ms-btn:hover {
-	color: #ffffff;
+	color: var(--white);
 	background-color: var(--red);
 	border: 1px solid var(--red);
+}
+
+.btn.active {
+	border: 1px solid var(--red);
+	color: var(--white);
 }
 
 /*NEWS*/
@@ -117,14 +144,14 @@ img {
 .ms-card-container .ms-card .face.face1 .content h3{
     margin: 10px 0 0;
     padding: 0;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     font-size: 1.5em;
 }
 
 .ms-card-container .ms-card .face.face2{
     position: relative;
-    background: #fff;
+    background: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,7 +171,6 @@ img {
 }
 
 .container .ms-card .face.face2 .content a{
-    ms-card-container: 15px 0 0;
     display:  inline-block;
     text-decoration: none;
     font-weight: 900;
@@ -155,7 +181,7 @@ img {
 
 .ms-card-container .ms-card .face.face2 .content a:hover{
     background: #333;
-    color: #fff;
+    color: var(--white);
 }
 
 
@@ -216,7 +242,7 @@ audio {
 
 .btn-user {
 	background-color: var(--red);
- 	color: white;
+ 	color: var(--white);
  	padding: 12px 15px;
  	border: none;
  	cursor: pointer;
@@ -249,7 +275,7 @@ ul{
 }
 .footer-col h4{
   font-size: 18px;
-  color: #ffffff;
+  color: var(--white);
   text-transform: capitalize;
   margin-bottom: 35px;
   font-weight: 500;
@@ -260,7 +286,7 @@ ul{
   position: absolute;
   left:0;
   bottom: -10px;
-  background-color: #ffffff;
+  background-color: var(--white);
   height: 2px;
   box-sizing: border-box;
   width: 50px;
@@ -271,15 +297,15 @@ ul{
 .footer-col ul li a{
   font-size: 16px;
   text-transform: capitalize;
-  color: #ffffff;
+  color: var(--white);
   text-decoration: none;
   font-weight: 300;
-  color: #ffffff;
+  color: var(--white);
   display: block;
   transition: all 0.3s ease;
 }
 .footer-col ul li a:hover{
-  color: #ffffff;
+  color: var(--white);
   padding-left: 8px;
 }
 .footer-col .social-links a{
@@ -291,10 +317,10 @@ ul{
   text-align: center;
   line-height: 40px;
   border-radius: 50%;
-  color: #ffffff;
+  color: var(--white);
   transition: all 0.5s ease;
 }
 .footer-col .social-links a:hover{
   color: #24262b;
-  background-color: #ffffff;
+  background-color: var(--white);
 }

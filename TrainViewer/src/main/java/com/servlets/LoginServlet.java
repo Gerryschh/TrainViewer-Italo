@@ -35,6 +35,7 @@ public class LoginServlet extends HttpServlet{
 		
 		if(u != null) {
 			session.setAttribute("username", u.getUserName());
+			session.setAttribute("isAdmin", u.isAdmin());
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);
