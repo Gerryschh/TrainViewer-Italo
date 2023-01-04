@@ -18,7 +18,7 @@
 </head>
 <body class="bg-white">
 
-<%@include file="menu.jsp" %>
+<%@include file="/fragments/menu.jsp" %>
 
 <!-- <jsp:include page="menu.jsp"></jsp:include> -->
 

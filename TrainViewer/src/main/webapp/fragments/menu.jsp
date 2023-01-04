@@ -14,14 +14,10 @@
 			%>
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="countryList.jsp"><span>CountryList</span></a></li>
+					href="/TrainViewer/countrySearch.jsp"><span>Cerca un Treno</span></a></li>
+					
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="admin.jsp"><span>ApproveAliases Admin</span></a>
-				</li>
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="insert.jsp"><span>InsertTrain Admin</span></a></li>
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/trainGame/trainGame.jsp"><span>TrainGame</span></a>
+					href="/TrainViewer/trainGame/trainGame.jsp"><span>TrainGame</span></a>
 				</li>
 			</ul>
 			<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
@@ -37,20 +33,16 @@
 				
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="login.jsp"><span>CountryList</span></a></li>
+					href="/TrainViewer/countrySearch.jsp"><span>Cerca un Treno</span></a></li>
+					
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="login.jsp"><span>ApproveAliases Admin</span></a>
-				</li>
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="login.jsp"><span>InsertTrain Admin</span></a></li>
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="login.jsp"><span>TrainGame</span></a>
+					href="/TrainViewer/trainGame/trainGame.jsp"><span>TrainGame</span></a>
 				</li>
 			</ul>
 			<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
 			
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="login.jsp"><span>Accedi/Registrati</span></a>
+					href="/TrainViewer/login.jsp"><span>Accedi/Registrati</span></a>
 				</li>
 			</ul>
 				<%

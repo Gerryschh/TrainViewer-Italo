@@ -27,7 +27,7 @@
 </head>
 <body class="bg-white">
 
-	<jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="/fragments/menu.jsp"></jsp:include>
 	
 	<section class="ms-carousel mb-4">
 		<div id="carouselExampleAutoplaying" class="carousel slide" id="carousel" data-bs-ride="carousel">
@@ -177,6 +177,6 @@
     </div>
 	
 	</section>
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="/fragments/footer.jsp"></jsp:include>
 </body>
 </html>
