@@ -9,6 +9,7 @@
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<%
 			String username = (String) session.getAttribute("username");
+			Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
 			
 			if(username != null){
 			%>
@@ -24,10 +25,23 @@
 				
 					<li class="nav-item nav-link"><span>Benvenuto, <%= username %></span></li>
 					<li class="nav-item nav-link"><div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div><hr class="d-lg-none my-2 text-black-50"></li>
-					<li class="nav-item">
-						<form id="logout-form" action="LogoutServlet" method="POST">
-						<input type="submit" value="Logout"></form></li>
-						</ul>
+						<div class="btn-group">
+						  <button class="btn ms-logout-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						    <i class="fas fa-user"></i>
+						  </button>
+						  <ul class="dropdown-menu dropdown-menu-end">
+						    <li><a class="dropdown-item" href="/TrainViewer/userSettings.jsp">User Settings</a></li>
+						    <% if (isAdmin) { %> 
+						    <li><a class="dropdown-item" href="/TrainViewer/admin/admin.jsp">Admin Page</a></li>
+						    <% } %>
+						    <li>
+						    	<form id="logout-form" action="LogoutServlet" method="POST">
+								<input class="ms-logout dropdown-item" type="submit" value="Logout"></form></li>
+							</li>
+						  </ul>
+						</div>
+					</li>
+				</ul>
 				<%
 				} else {
 				%>
