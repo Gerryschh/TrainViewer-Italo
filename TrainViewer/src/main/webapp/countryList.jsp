@@ -31,7 +31,9 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 </head>
 <body class="bg-white">
 
-	<jsp:include page="menu.jsp"></jsp:include>
+	<%@include file="menu.jsp" %>
+
+<!-- <jsp:include page="menu.jsp"></jsp:include> -->
 
 	<!-- Table of countries -->
 

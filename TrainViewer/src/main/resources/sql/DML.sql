@@ -253,7 +253,7 @@ INSERT INTO train (mat_train, departure, arrival) VALUES
 ('HPPPPR','Afghanistan','Italia');
 
 INSERT INTO userr (user_mail, user_password, user_name) VALUES
-('gerardo@email.it','abc','Gerry');
+('gerardo@email.it','abcd1234','Gerry');
 
 INSERT INTO userr (user_mail, user_password, user_name, is_admin) VALUES
-('meshua@email.it','abc','Meshua', true);
+('meshua@email.it','abcd1234','Meshua', true);

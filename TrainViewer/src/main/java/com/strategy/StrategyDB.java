@@ -7,19 +7,21 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.query.NativeQuery;
-import com.connectionDB.ConnectionToDB;
-import com.dao.impl.AliasDaoImpl;
-import com.dao.impl.AliasUnknownDaoImpl;
-import com.dao.impl.TrainDaoImpl;
-import com.dao.impl.UserDaoImpl;
-import com.dao.AliasUnknownDao;
+
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
 import com.beans.Train;
 import com.beans.User;
+import com.connectionDB.ConnectionToDB;
+import com.dao.AliasUnknownDao;
+import com.dao.impl.AliasDaoImpl;
+import com.dao.impl.AliasUnknownDaoImpl;
+import com.dao.impl.TrainDaoImpl;
+import com.dao.impl.UserDaoImpl;
 
 public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
@@ -30,9 +32,9 @@ public class StrategyDB implements Strategy{
 	private TrainDaoImpl trainDao = new TrainDaoImpl();
 	private Map<String,List<String>> dataMap;
 	public String getAliasCountry(String input) {
-	    String query = "select nome_paese from alias where alias_paese = " + input;
-	    NativeQuery<String> q = session.createSQLQuery(query);
-	    return q.getSingleResult();
+		String query = "select nome_paese from alias where alias_paese = " + input;
+		NativeQuery<String> q = session.createSQLQuery(query);
+		return q.getSingleResult();
 	}	
 
 	/*
@@ -45,8 +47,8 @@ public class StrategyDB implements Strategy{
 		au.setUnknown(input);
 		unknownDao.create(au);
 	}
-	
-	
+
+
 	@Override
 	public void addUser(String userMail, String password, String userName) {
 		User u = new User();
@@ -55,7 +57,7 @@ public class StrategyDB implements Strategy{
 		u.setUserName(userName);
 		userDao.create(u);
 	}
-	
+
 	@Override
 	public void addTrain(String matTrain, String departure, String arrival) {
 		Train t = new Train();
@@ -64,31 +66,31 @@ public class StrategyDB implements Strategy{
 		t.setArrival(arrival);
 		trainDao.create(t);
 	}	
-	
-	
+
+
 	/*
 	 * METODI GET
 	 */
-	
+
 	public Map<String,List<String>> dataMap() {
-        NativeQuery<String> q = session.createSQLQuery("Select country_name From country");
-        HashMap<String, List<String>> map = new HashMap<String, List<String>>();
-        for (String s: q.getResultList()) {
-            map.put(s.toLowerCase(), new ArrayList<String>());
-        }
-        NativeQuery<Object []> mq = session.createSQLQuery("Select alias_country, country_name from alias");
-        List<Object[]>  l =mq.list();
-        System.out.println(l.size());
-        for(Object[] o: l) { 
-	        List<String> temp = map.get(((String)o[1]).toLowerCase());
-	        temp.add((String) o[0]);
-	        map.put((String) o[1], temp);            
-        }
-        dataMap=map;
-        return map;
-    }
-	
-	
+		NativeQuery<String> q = session.createSQLQuery("Select country_name From country");
+		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
+		for (String s: q.getResultList()) {
+			map.put(s.toLowerCase(), new ArrayList<String>());
+		}
+		NativeQuery<Object []> mq = session.createSQLQuery("Select alias_country, country_name from alias");
+		List<Object[]>  l =mq.list();
+		System.out.println(l.size());
+		for(Object[] o: l) { 
+			List<String> temp = map.get(((String)o[1]).toLowerCase());
+			temp.add((String) o[0]);
+			map.put((String) o[1], temp);            
+		}
+		dataMap=map;
+		return map;
+	}
+
+
 	@Override
 	public Set<String> getCountryNames() {
 		return dataMap.keySet();
@@ -100,8 +102,8 @@ public class StrategyDB implements Strategy{
 
 		Collection<Country> cc = new LinkedList <Country>();
 		NativeQuery<Object []> mq = session.createSQLQuery("Select * from country");
-        List<Object[]> countries = mq.list();
-        
+		List<Object[]> countries = mq.list();
+
 		for (Object[] o: countries) {
 			Country c = new Country();
 			c.setCountryName((String) o[0]);
@@ -115,8 +117,8 @@ public class StrategyDB implements Strategy{
 	public Collection<Alias> getUnapprovedAliases() {
 		Collection<Alias> ca = new LinkedList <Alias>();
 		NativeQuery<Object []> mq = session.createSQLQuery("Select * from alias where approved = 0");
-        List<Object[]> aliases = mq.list();
-        
+		List<Object[]> aliases = mq.list();
+
 		for (Object[] o: aliases) {
 			Alias a = new Alias();
 			a.setAlias((String) o[0]);
@@ -129,19 +131,19 @@ public class StrategyDB implements Strategy{
 		}
 		return ca;
 	}
-	
+
 	@Override
 	public User getUserByMail(String userMail) {
 		User u = userDao.get(userMail);
 		return u;
 	}
-	
+
 	@Override
 	public Collection<Train> getAllTrains() {
 		Collection<Train> ct = new LinkedList <Train>();
 		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train");
-        List<Object[]> trains = mq.list();
-        
+		List<Object[]> trains = mq.list();
+
 		for (Object[] o: trains) {
 			Train t = new Train();
 			t.setIdTrain((Integer) o[0]);
@@ -152,13 +154,13 @@ public class StrategyDB implements Strategy{
 		}
 		return ct;
 	}
-	
+
 	@Override
 	public Collection<User> getAllUsers() {
 		Collection<User> cu = new LinkedList <User>();
 		NativeQuery<Object []> mq = session.createSQLQuery("Select * from userr where is_admin = 0");
-        List<Object[]> users = mq.list();
-        
+		List<Object[]> users = mq.list();
+
 		for (Object[] o: users) {
 			User u = new User();
 			u.setUserMail((String) o[0]);
@@ -170,14 +172,34 @@ public class StrategyDB implements Strategy{
 		return cu;
 	}
 
+	@Override
+	public User checkUser(String email, String password) {
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from userr where user_mail ='" + email + "' and user_password = '" +  password + "'");
+
+		List<Object[]> users = mq.list();
+		if(users.size() > 0) {
+			for (Object[] o: users) {
+				User u = new User();
+				u.setUserMail((String) o[0]);
+				u.setPassword((String) o[1]);
+				u.setUserName((String) o[2]);
+				u.setAdmin((boolean) o[3]);
+
+				return u;
+			}
+		}
+		return null;
+	}
+
+
+
 	/*
 	 * METODI SET
 	 */
-	
+
 	@Override
 	public void approveAlias(String[] list) {
-		for(String s : list)
-		{
+		for(String s : list) {
 			Alias a = aliasDao.get(s);
 			a.setApproved(true);
 			aliasDao.getSession().beginTransaction();
