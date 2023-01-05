@@ -1,7 +1,9 @@
 package com.strategy;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -210,7 +212,28 @@ public class StrategyDB implements Strategy{
 		
 	}
 
+	@Override
+	public Collection<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
+		Collection<Train> ct = new LinkedList <Train>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train where factory = " + factory 
+				+ " AND departure = '" + departure + "' AND arrival = '"+ arrival + "'");
+		List<Object[]> trains = mq.list();
 
+		for (Object[] o: trains) {
+			Train t = new Train();
+			t.setIdTrain((Integer) o[0]);
+			t.setMatTrain((String) o[1]);
+			t.setFactory((int) o[2]);
+			t.setDeparture((String) o[3]);
+			t.setArrival((String) o[4]);
+			t.setHour((Date) o[5]);
+			ct.add(t);
+		}
+		return ct;
+		
+		/*DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+			Date dateTime = DateTime.parse(dateInString, formatter);*/
+	}
 
 	/*
 	 * METODI SET

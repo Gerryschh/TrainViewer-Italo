@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"	import="java.util.*,com.beans.*,com.strategy.*"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"	
+import="java.util.*,com.beans.*,com.strategy.*"%>
 
-<%Strategy db = new StrategyDB();
+<%
+Strategy db = new StrategyDB();
 List<Factory> factory = (List<Factory>) db.getFactory();%>
 
 <!DOCTYPE html>
@@ -29,7 +31,7 @@ List<Factory> factory = (List<Factory>) db.getFactory();%>
 				<form id="login-form" onsubmit="return handleSubmit()"
 					action="SearchTrainServlet" method="GET">
 					<label for="train">Treno: </label>
-					<select id="train" name="train">
+					<select id="idFactory" name="train">
 					<%
 					for(Factory f: factory){ 
 						int s = f.getIdFactory(); %>
@@ -40,10 +42,10 @@ List<Factory> factory = (List<Factory>) db.getFactory();%>
 					%>
 					
 					</select>
-					<label for="departure">Partenza: </label> <input type="text"
-						id="departure" name="departure" required> <label
-						for="arrival">Destinazione: </label> <input
-						type="text" id="arrival" name="arrival" required><br />
+					<label for="departure">Partenza: </label> 
+					<input type="text" id="departure" name="departure" required> 
+					<label for="arrival">Destinazione: </label> 
+					<input type="text" id="arrival" name="arrival" required><br />
 					<input class="btn-user" type="submit" value="Cerca">
 				</form>
 			</div>

@@ -32,4 +32,5 @@ public interface Strategy {
 	
 	//Metodi SET
 	public void approveAlias(String[] list);
+	Collection<Train> getTrainsWithParameter(int factory, String departure, String arrival);
 }
