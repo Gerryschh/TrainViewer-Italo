@@ -1,14 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
-	import="java.util.*,com.beans.*,com.strategy.*"%>
-
-<%
-
-Strategy db = new StrategyDB();
-Collection<?> countries = (Collection<?>) db.getAllCountries();
-
-%>
-
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,48 +18,10 @@ Collection<?> countries = (Collection<?>) db.getAllCountries();
 <!-- SCRIPT -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-<title>TrainViewer</title>
+<title>TrainList Admin</title>
 </head>
 <body class="bg-white">
-
-<jsp:include page="/menu.jsp"></jsp:include>
-
-	<!-- Table of countries -->
-
-	<div class="container">
-
-		<h1 class="py-4 text-center">Country Table</h1>
-
-		<table class="table table-white table-striped">
-			<thead>
-				<tr>
-					<th scope="col">Country</th>
-					<th scope="col">Alpha Code</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<% 
-			if(countries != null && countries.size() != 0) {
-				Iterator<?> it = countries.iterator();
-				while(it.hasNext()) {
-					Country c = (Country) it.next();
-		%>
-					<td><%=c.getCountryName()%></td>
-					<td><%=c.getAlpha2code()%></td>
-				</tr>
-				<%
-			}
-	
-		}
-		%>
-
-			</tbody>
-		</table>
-
-
-	
-	</div>
+	<jsp:include page="/menu.jsp"></jsp:include>
 	<jsp:include page="/fragments/footer.jsp"></jsp:include>
 </body>
 </html>

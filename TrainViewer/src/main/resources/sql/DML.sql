@@ -249,8 +249,8 @@ INSERT INTO Country (country_name, alpha2_code) VALUES
 ('Zambia','ZM'),
 ('Zimbabwe','ZW');
 
-INSERT INTO train (mat_train, departure, arrival) VALUES
-('HPPPPR','Afghanistan','Italia');
+INSERT INTO train (mat_train, departure, arrival, train_brand) VALUES
+('HPPPPR','Afghanistan','Italia','TreNord');
 
 INSERT INTO userr (user_mail, user_password, user_name) VALUES
 ('gerardo@email.it','abcd1234','Gerry');
