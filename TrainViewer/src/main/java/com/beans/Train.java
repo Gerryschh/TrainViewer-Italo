@@ -5,7 +5,6 @@ public class Train implements Bean {
 	private String matTrain;
 	private String departure;
 	private String arrival;
-	private String trainBrand;
 	
 	public int getIdTrain() {
 		return idTrain;
@@ -30,11 +29,5 @@ public class Train implements Bean {
 	}
 	public void setArrival(String arrival) {
 		this.arrival = arrival;
-	}
-	public String getTrainBrand() {
-		return trainBrand;
-	}
-	public void setTrainBrand(String trainBrand) {
-		this.trainBrand = trainBrand;
 	}
 }

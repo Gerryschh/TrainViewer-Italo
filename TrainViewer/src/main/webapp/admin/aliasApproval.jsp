@@ -64,7 +64,7 @@ Collection<?> aliases = (Collection<?>) db.getUnapprovedAliases();
 				</tbody>
 			</table>
 			<p class="text-center">
-				<input class="btn btn-outline-light" type="submit" value="Approve">
+				<input class="btn btn-outline-dark" type="submit" value="Approve">
 			</p>
 		</form>
 

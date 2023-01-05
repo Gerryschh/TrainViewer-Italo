@@ -60,12 +60,11 @@ public class StrategyDB implements Strategy{
 	}
 
 	@Override
-	public void addTrain(String matTrain, String departure, String arrival, String trainBrand) {
+	public void addTrain(String matTrain, String departure, String arrival) {
 		Train t = new Train();
 		t.setMatTrain(matTrain);
 		t.setDeparture(departure);
 		t.setArrival(arrival);
-		t.setTrainBrand(trainBrand);
 		trainDao.create(t);
 	}	
 
@@ -152,7 +151,6 @@ public class StrategyDB implements Strategy{
 			t.setMatTrain((String) o[1]);
 			t.setDeparture((String) o[2]);
 			t.setArrival((String) o[3]);
-			t.setTrainBrand((String) o[4]);
 			ct.add(t);
 		}
 		return ct;
