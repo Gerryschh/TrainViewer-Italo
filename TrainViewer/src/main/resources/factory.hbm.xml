@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.beans.Factory" table="train_factory">  
+  	
+  	<id name="factory_code" column="factory_code">
+  	<generator class="increment"></generator>
+  	</id>
+  	<property name="factory_name" column="factory_name"></property>
+
+  </class>  
+            
+ </hibernate-mapping> 

@@ -1,7 +1,9 @@
 package com.strategy;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +16,7 @@ import org.hibernate.query.NativeQuery;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
+import com.beans.Factory;
 import com.beans.Train;
 import com.beans.User;
 import com.connectionDB.ConnectionToDB;
@@ -60,11 +63,13 @@ public class StrategyDB implements Strategy{
 	}
 
 	@Override
-	public void addTrain(String matTrain, String departure, String arrival) {
+	public void addTrain(String matTrain, String departure, String arrival,  Date hour, int factory) {
 		Train t = new Train();
 		t.setMatTrain(matTrain);
 		t.setDeparture(departure);
 		t.setArrival(arrival);
+		t.setHour(hour);
+		t.setFactory(factory);
 		trainDao.create(t);
 	}	
 
@@ -151,6 +156,8 @@ public class StrategyDB implements Strategy{
 			t.setMatTrain((String) o[1]);
 			t.setDeparture((String) o[2]);
 			t.setArrival((String) o[3]);
+			t.setHour((Date) o[4]);
+			t.setFactory((Integer) o[5]);
 			ct.add(t);
 		}
 		return ct;
@@ -191,8 +198,47 @@ public class StrategyDB implements Strategy{
 		}
 		return null;
 	}
+	
+	public List<Factory> getFactory(){
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train_factory");
+		List<Object[]> factory = mq.list();
+		List<Factory> factoryList = new ArrayList<>();
+		if (!factory.isEmpty()) {
+			for (Object[] o: factory) {
+				Factory f = new Factory();
+				f.setIdFactory((int) o[0]);
+				f.setNameFactory((String) o[1]);
+			factoryList.add(f);
+			}
+		} 
+		
+		return factoryList;
+		
+	}
 
-
+	@Override
+	public List<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
+		List<Train> ct = new ArrayList <Train>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train where factory = " + factory 
+				+ " AND departure = '" + departure + "' AND arrival = '"+ arrival + "'");
+		List<Object[]> trains = mq.list();
+		System.out.println("LISTA DAL DB DEI TRENI: " + ct);
+		for (Object[] o: trains) {
+			Train t = new Train();
+			t.setIdTrain((Integer) o[0]);
+			t.setMatTrain((String) o[1]);
+			t.setFactory((int) o[2]);
+			t.setDeparture((String) o[3]);
+			t.setArrival((String) o[4]);
+			t.setHour((Date) o[5]);
+			ct.add(t);
+			System.out.println("LISTA DAL DB DEI TRENI: " + ct);
+		}
+		return ct;
+		
+		/*DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+			Date dateTime = DateTime.parse(dateInString, formatter);*/
+	}
 
 	/*
 	 * METODI SET

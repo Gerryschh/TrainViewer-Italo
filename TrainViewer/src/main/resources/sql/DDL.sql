@@ -9,6 +9,13 @@ CREATE TABLE country (
 
 );
 
+DROP TABLE IF EXISTS train_factory;
+CREATE TABLE train_factory (
+  factory_code INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  factory_name VARCHAR(30) NOT NULL
+
+);
+
 DROP TABLE IF EXISTS alias;
 CREATE TABLE alias (
   alias_country VARCHAR(50) NOT NULL PRIMARY KEY,
@@ -29,8 +36,13 @@ DROP TABLE IF EXISTS train;
 CREATE TABLE train (
   id_train INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   mat_train VARCHAR(10) NOT NULL,
+  factory INT NOT NULL,
   departure VARCHAR(50) NOT NULL,
   arrival VARCHAR(50) NOT NULL,
+  departure_hour TIME NOT NULL,
+  FOREIGN KEY (factory) REFERENCES train_factory(factory_code) 
+  		ON UPDATE CASCADE
+  		ON DELETE CASCADE,
   FOREIGN KEY (departure) REFERENCES country(country_name) 
   		ON UPDATE CASCADE
   		ON DELETE CASCADE,

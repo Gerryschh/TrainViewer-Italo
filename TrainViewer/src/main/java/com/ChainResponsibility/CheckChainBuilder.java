@@ -17,12 +17,18 @@ public class CheckChainBuilder {
 	public static CheckChain getChain(Strategy s) {
 		if (instance== null) {
 			CheckChain cd = new Contained();
-			CheckChain cs = new Contains(); cs.setNextChain(cd);
-			CheckChain cp = new ContainsPartial(); cp.setNextChain(cs);
-			CheckChain lev = new Levenshtein(2); lev.setNextChain(cp);
-			CheckChain jd = new JaroDistance(0.75); jd.setNextChain(lev);
-			CheckChain ei = new EqualsInputCS(); ei.setNextChain(jd);
-			CheckChain es = new EqualsStandardCS(); es.setNextChain(ei);
+			CheckChain cs = new Contains(); 
+			cs.setNextChain(cd);
+			CheckChain cp = new ContainsPartial(); 
+			cp.setNextChain(cs);
+			CheckChain lev = new Levenshtein(2); 
+			lev.setNextChain(cp);
+			CheckChain jd = new JaroDistance(0.75); 
+			jd.setNextChain(lev);
+			CheckChain ei = new EqualsInputCS(); 
+			ei.setNextChain(jd);
+			CheckChain es = new EqualsStandardCS(); 
+			es.setNextChain(ei);
 			es.setStrategy(s);
 			instance=ei;
 		}

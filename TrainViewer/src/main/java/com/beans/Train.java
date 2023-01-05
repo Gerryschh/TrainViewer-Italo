@@ -1,11 +1,27 @@
 package com.beans;
 
+import java.util.Date;
+
 public class Train implements Bean {
 	private int idTrain;
 	private String matTrain;
 	private String departure;
 	private String arrival;
+	private Date hour;
+	private int factory;
 	
+	public int getFactory() {
+		return factory;
+	}
+	public void setFactory(int factory) {
+		this.factory = factory;
+	}
+	public Date getHour() {
+		return hour;
+	}
+	public void setHour(Date hour) {
+		this.hour = hour;
+	}
 	public int getIdTrain() {
 		return idTrain;
 	}
