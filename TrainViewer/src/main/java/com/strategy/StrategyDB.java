@@ -192,7 +192,9 @@ public class StrategyDB implements Strategy{
 		return null;
 	}
 
-
+	//public insertScore(String username, String score) {
+		
+	//}
 
 	/*
 	 * METODI SET

@@ -257,3 +257,6 @@ INSERT INTO userr (user_mail, user_password, user_name) VALUES
 
 INSERT INTO userr (user_mail, user_password, user_name, is_admin) VALUES
 ('meshua@email.it','abcd1234','Meshua', true);
+
+INSERT INTO score (score, user_mail) VALUES
+('500', 'gerardo@email.it');

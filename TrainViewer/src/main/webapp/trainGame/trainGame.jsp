@@ -41,6 +41,32 @@
 	<p id="posizioneOmino"></p>
 	<p id="messaggioDebug"></p>
 	
+	<%
+		
+	%>
+	<!-- FORM PER L'INVIO DEL PUNTEGGIO AL DB, DIRETTO APPENA FINISCE IL GIOCO -->
+	<form id="scoreUser-form" onsubmit="return handleSubmit()" action="TrainGameScoreServlet" method="POST">
+		<label for="username">Username:</label><br/>
+		<input type="text" id="username" name="username" disabled><br/>
+		<label for="score">Score:</label><br/>
+		<input type="text" id="score" name="score" disabled><br/>
+
+		<input class="btn-user" type="submit" value="Registra punteggio">
+	</form>
+	
+	
+	<form id="leaderboard-form" onsubmit="return handleSubmit()" action="TrainGameLeaderboardServlet" method="GET">
+		<label for="username">Username:</label><br/>
+		<input type="text" id="username" name="username" disabled><br/>
+		<label for="score">Score:</label><br/>
+		<input type="text" id="score" name="score" disabled><br/>
+
+	</form>
+
+
+
+
+
 	<jsp:include page="../fragments/footer.jsp"></jsp:include>
 
 	<script type="text/javascript" src="js/mappa.js"></script>
