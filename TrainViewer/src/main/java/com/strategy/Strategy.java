@@ -1,6 +1,7 @@
 package com.strategy;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,7 +17,7 @@ public interface Strategy {
 	//Metodi ADD
 	public void addAliasUnknown(String input);
 	public void addUser(String userMail, String password, String userName);
-	public void addTrain(String matTrain, String departure, String arrival);
+	public void addTrain(String matTrain, String departure, String arrival, Date hour, int factory);
 	
 	//Metodi GET
 	public Set<String> getCountryNames();
@@ -32,5 +33,5 @@ public interface Strategy {
 	
 	//Metodi SET
 	public void approveAlias(String[] list);
-	Collection<Train> getTrainsWithParameter(int factory, String departure, String arrival);
+	List<Train> getTrainsWithParameter(int factory, String departure, String arrival);
 }

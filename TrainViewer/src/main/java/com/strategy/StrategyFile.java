@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,11 +107,7 @@ public class StrategyFile implements Strategy {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public void addTrain(String matTrain, String departure, String arrival) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	@Override
 	public Collection<Train> getAllTrains() {
 		// TODO Auto-generated method stub
@@ -132,8 +129,13 @@ public class StrategyFile implements Strategy {
 		return null;
 	}
 	@Override
-	public Collection<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
+	public List<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public void addTrain(String matTrain, String departure, String arrival, Date hour, int factory) {
+		// TODO Auto-generated method stub
+		
 	}
 }

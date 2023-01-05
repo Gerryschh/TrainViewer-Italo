@@ -63,11 +63,13 @@ public class StrategyDB implements Strategy{
 	}
 
 	@Override
-	public void addTrain(String matTrain, String departure, String arrival) {
+	public void addTrain(String matTrain, String departure, String arrival,  Date hour, int factory) {
 		Train t = new Train();
 		t.setMatTrain(matTrain);
 		t.setDeparture(departure);
 		t.setArrival(arrival);
+		t.setHour(hour);
+		t.setFactory(factory);
 		trainDao.create(t);
 	}	
 
@@ -154,6 +156,8 @@ public class StrategyDB implements Strategy{
 			t.setMatTrain((String) o[1]);
 			t.setDeparture((String) o[2]);
 			t.setArrival((String) o[3]);
+			t.setHour((Date) o[4]);
+			t.setFactory((Integer) o[5]);
 			ct.add(t);
 		}
 		return ct;
@@ -213,12 +217,12 @@ public class StrategyDB implements Strategy{
 	}
 
 	@Override
-	public Collection<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
-		Collection<Train> ct = new LinkedList <Train>();
+	public List<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
+		List<Train> ct = new ArrayList <Train>();
 		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train where factory = " + factory 
 				+ " AND departure = '" + departure + "' AND arrival = '"+ arrival + "'");
 		List<Object[]> trains = mq.list();
-
+		System.out.println("LISTA DAL DB DEI TRENI: " + ct);
 		for (Object[] o: trains) {
 			Train t = new Train();
 			t.setIdTrain((Integer) o[0]);
@@ -228,6 +232,7 @@ public class StrategyDB implements Strategy{
 			t.setArrival((String) o[4]);
 			t.setHour((Date) o[5]);
 			ct.add(t);
+			System.out.println("LISTA DAL DB DEI TRENI: " + ct);
 		}
 		return ct;
 		
