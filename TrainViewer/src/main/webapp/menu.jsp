@@ -15,8 +15,7 @@
 			%>
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="/TrainViewer/countrySearch.jsp"><span>Cerca un Treno</span></a></li>
-					
+					href="/TrainViewer/searchingTrain.jsp"><span>Cerca un Treno</span></a></li>
 				<li class="nav-item"><a class="nav-link" aria-current="page"
 					href="/TrainViewer/trainGame/trainGame.jsp"><span>TrainGame</span></a>
 				</li>

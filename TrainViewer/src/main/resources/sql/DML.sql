@@ -249,11 +249,16 @@ INSERT INTO Country (country_name, alpha2_code) VALUES
 ('Zambia','ZM'),
 ('Zimbabwe','ZW');
 
-INSERT INTO train (mat_train, departure, arrival) VALUES
-('HPPPPR','Afghanistan','Italia');
-
 INSERT INTO userr (user_mail, user_password, user_name) VALUES
 ('gerardo@email.it','abcd1234','Gerry');
 
 INSERT INTO userr (user_mail, user_password, user_name, is_admin) VALUES
 ('meshua@email.it','abcd1234','Meshua', true);
+
+INSERT INTO train_factory (factory_name) VALUES
+('Italo'),
+('TreNord'),
+('Freccia Rossa');
+
+INSERT INTO train (mat_train, factory, departure, arrival, departure_hour) VALUES 
+('HCCCCC', 1, 'Burundi', 'Austria', '09:39:00');
