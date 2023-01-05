@@ -106,7 +106,7 @@ public class StrategyFile implements Strategy {
 		return null;
 	}
 	@Override
-	public void addTrain(String matTrain, String departure, String arrival) {
+	public void addTrain(String matTrain, String departure, String arrival, String trainBrand) {
 		// TODO Auto-generated method stub
 		
 	}

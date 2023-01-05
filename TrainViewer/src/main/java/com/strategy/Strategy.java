@@ -15,7 +15,7 @@ public interface Strategy {
 	//Metodi ADD
 	public void addAliasUnknown(String input);
 	public void addUser(String userMail, String password, String userName);
-	public void addTrain(String matTrain, String departure, String arrival);
+	public void addTrain(String matTrain, String departure, String arrival, String trainBrand);
 	
 	//Metodi GET
 	public Set<String> getCountryNames();

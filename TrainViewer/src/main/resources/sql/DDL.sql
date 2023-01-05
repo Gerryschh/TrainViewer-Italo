@@ -31,6 +31,7 @@ CREATE TABLE train (
   mat_train VARCHAR(10) NOT NULL,
   departure VARCHAR(50) NOT NULL,
   arrival VARCHAR(50) NOT NULL,
+  train_brand VARCHAR(50) NOT NULL,
   FOREIGN KEY (departure) REFERENCES country(country_name) 
   		ON UPDATE CASCADE
   		ON DELETE CASCADE,
