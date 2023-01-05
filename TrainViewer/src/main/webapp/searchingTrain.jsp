@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"	pageEncoding="ISO-8859-1"	import="java.util.*,com.beans.*,com.strategy.*"%>
+
+<%Strategy db = new StrategyDB();
+List<Factory> factory = (List<Factory>) db.getFactory();%>
 
 <!DOCTYPE html>
 <html>
@@ -28,11 +30,16 @@
 					action="SearchTrainServlet" method="GET">
 					<label for="train">Treno: </label>
 					<select id="train" name="train">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="fiat">Fiat</option>
-  <option value="audi">Audi</option>
-</select>
+					<%
+					for(Factory f: factory){ 
+						int s = f.getIdFactory(); %>
+					<option value= "<%= s %>"> <%= f.getNameFactory() %></option>
+						
+					<% 
+					} 
+					%>
+					
+					</select>
 					<label for="departure">Partenza: </label> <input type="text"
 						id="departure" name="departure" required> <label
 						for="arrival">Destinazione: </label> <input
@@ -51,21 +58,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<%
-						/*if (countries != null && countries.size() != 0) {
-							Iterator<?> it = countries.iterator();
-							while (it.hasNext()) {
-								Country c = (Country) it.next();*/
-						%>
-						<td><%/*=c.getCountryName()*/%></td>
-						<td><%/*=c.getAlpha2code()*/%></td>
-					</tr>
-					<%
-					/*}
-
-					} */
-					%>
+				
 
 				</tbody>
 			</table>

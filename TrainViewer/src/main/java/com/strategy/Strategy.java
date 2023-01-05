@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
+import com.beans.Factory;
 import com.beans.Train;
 import com.beans.User;
 
@@ -27,6 +28,7 @@ public interface Strategy {
 	public Collection<Train> getAllTrains();
 	public Collection<User> getAllUsers();
 	public User checkUser(String email, String password);
+	public List<Factory> getFactory();
 	
 	//Metodi SET
 	public void approveAlias(String[] list);

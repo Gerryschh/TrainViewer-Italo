@@ -13,6 +13,7 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
+import com.beans.Factory;
 import com.beans.Train;
 import com.beans.User;
 
@@ -122,6 +123,11 @@ public class StrategyFile implements Strategy {
 	}
 	@Override
 	public User checkUser(String email, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Factory> getFactory() {
 		// TODO Auto-generated method stub
 		return null;
 	}

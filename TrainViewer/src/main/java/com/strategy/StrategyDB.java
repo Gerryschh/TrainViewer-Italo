@@ -14,6 +14,7 @@ import org.hibernate.query.NativeQuery;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
+import com.beans.Factory;
 import com.beans.Train;
 import com.beans.User;
 import com.connectionDB.ConnectionToDB;
@@ -190,6 +191,23 @@ public class StrategyDB implements Strategy{
 			}
 		}
 		return null;
+	}
+	
+	public List<Factory> getFactory(){
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train_factory");
+		List<Object[]> factory = mq.list();
+		List<Factory> factoryList = new ArrayList<>();
+		if (!factory.isEmpty()) {
+			for (Object[] o: factory) {
+				Factory f = new Factory();
+				f.setIdFactory((int) o[0]);
+				f.setNameFactory((String) o[1]);
+			factoryList.add(f);
+			}
+		} 
+		
+		return factoryList;
+		
 	}
 
 
