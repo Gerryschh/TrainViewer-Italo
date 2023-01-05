@@ -27,7 +27,7 @@ public class AliasApprovingServlet extends HttpServlet {
 		StrategyDB s = new StrategyDB();
 		String[] checkAliases = request.getParameterValues("checkAlias");
 		s.approveAlias(checkAliases);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/aliasApproval.jsp");
 		dispatcher.forward(request, response);
 	}
 
