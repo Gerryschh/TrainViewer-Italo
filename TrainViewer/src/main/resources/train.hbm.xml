@@ -16,5 +16,5 @@
   	<many-to-one name="factory" class="com.beans.Factory" column="factory_code" insert="false" update="false"></many-to-one>
 
   </class>  
-            
- </hibernate-mapping> 
+  
+</hibernate-mapping> 

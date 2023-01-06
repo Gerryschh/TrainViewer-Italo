@@ -13,5 +13,5 @@
   	<property name="nameFactory" column="factory_name"></property>
 
   </class>  
-            
- </hibernate-mapping> 
+  
+</hibernate-mapping> 
