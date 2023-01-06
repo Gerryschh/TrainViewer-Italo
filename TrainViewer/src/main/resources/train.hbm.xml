@@ -4,6 +4,7 @@
  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
   
  <hibernate-mapping>  
+  
   <class name="com.beans.Train" table="train">  
   	
   	<id name="idTrain" column="id_train">
@@ -12,7 +13,7 @@
   	<property name="matTrain" column="mat_train"></property>
   	<many-to-one name="departure" class="com.beans.Country" column="country_name" insert="false" update="false"></many-to-one>
   	<many-to-one name="arrival" class="com.beans.Country" column="country_name" insert="false" update="false"></many-to-one>
-  	<many-to-one name="factory" class="com.beans.train_factory" column="factory_code" insert="false" update="false"></many-to-one>
+  	<many-to-one name="factory" class="com.beans.Factory" column="factory_code" insert="false" update="false"></many-to-one>
 
   </class>  
             

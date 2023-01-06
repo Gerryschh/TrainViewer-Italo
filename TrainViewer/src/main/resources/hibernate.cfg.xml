@@ -20,5 +20,4 @@
        <mapping resource="train.hbm.xml"/> 
        <mapping resource="factory.hbm.xml"/> 
     </session-factory>  
-    
 </hibernate-configuration>
