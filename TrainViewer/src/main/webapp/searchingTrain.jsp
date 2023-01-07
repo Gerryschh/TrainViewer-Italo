@@ -28,8 +28,7 @@ List<Factory> factory = (List<Factory>) db.getFactory();%>
 		<div class="row justify-content-around">
 
 			<div class="card">
-				<form id="login-form" onsubmit="return handleSubmit()"
-					action="SearchTrainServlet" method="GET">
+				<form id="login-form" action="SearchTrainServlet" method="GET">
 					<label for="train">Treno: </label>
 					<select id="idFactory" name="train">
 					<%
@@ -48,24 +47,106 @@ List<Factory> factory = (List<Factory>) db.getFactory();%>
 					<input type="text" id="arrival" name="arrival" required><br />
 					<input class="btn-user" type="submit" value="Cerca">
 				</form>
+				<%
+					List<Train> trains = (List<Train>) session.getAttribute("trainList");
+					System.out.println("treni jsp " + trains);
+					if (trains != null && trains.size() != 0){ 
+						System.out.println("Sono dentro");
+					%>
+							
+							<div class="container">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+										<th scope="col">Codice treno</th>
+										<tr>
+										<%
+										for (Train t: trains){ 
+												int id = t.getIdTrain(); 
+										%>
+										
+											<td scope="<%= id %>"> <%=t.getIdTrain() %></td>
+										<%
+										}
+										%>
+									    </tr>
+										<th scope="col">Partenza</th>
+										<tr>
+										<%
+										for (Train t: trains){ 
+												int id = t.getIdTrain(); 
+										%>
+										
+											<td scope="<%= id %>"> <%= t.getDeparture()%></td>
+										<%
+										}
+										%>
+									    </tr>
+										<th scope="col">Ora Partenza</th>
+										<tr>
+										<%
+										for (Train t: trains){ 
+												int id = t.getIdTrain(); 
+										%>
+										
+											<td scope="<%= id %>"> <%= t.getHour()%> </td>
+										<%
+										}
+										%>
+									    </tr>
+										<th scope="col">Destinazione</th>
+										<tr>
+										<%
+										for (Train t: trains){ 
+												int id = t.getIdTrain(); 
+										%>
+										
+											<td scope="<%= id %>"> <%= t.getArrival()%></td>
+										<%
+										}
+										%>
+									    </tr>
+										</tr>
+										
+									    
+									    
+									    
+									     
+									    
+									    
+									</thead>
+									<tbody>
+									
+					
+									</tbody>
+								</table>
+					
+							</div>
+					<%
+					} else{
+						String errorD = (String) session.getAttribute("errorDeparture");
+						String errorA = (String) session.getAttribute("errorArrival");
+						System.out.println("errore dep in jsp " + errorD);
+						System.out.println("errore dep in jsp " + errorA);
+						if ((errorD != null) || (errorA != null)){
+					%>
+					<div class="card">
+					<br>
+					<br>
+					<label> ERRORE! PAESE/I NON TROVATI</label>
+					</div>
+						<% 
+						} else { %>
+							<br>
+							<br>
+							<label> NESSUN TRENO DISPONIBILE</label>
+						<% }%>
+					<%
+					}
+					%>
 			</div>
 		</div>
-		<div class="container">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th scope="col">Codice treno</th>
-						<th scope="col">Partenza</th>
-						<th scope="col">Destinazione</th>
-					</tr>
-				</thead>
-				<tbody>
-				
 
-				</tbody>
-			</table>
-
-		</div>
 
 		<jsp:include page="/fragments/footer.jsp"></jsp:include>
 	</section>
