@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -217,8 +218,8 @@ public class StrategyDB implements Strategy{
 	}
 
 	@Override
-	public List<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
-		List<Train> ct = new ArrayList <Train>();
+	public Collection<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
+		Collection<Train> ct = new HashSet <Train>();
 		NativeQuery<Object []> mq = session.createSQLQuery("Select * from train where factory = " + factory 
 				+ " AND departure = '" + departure + "' AND arrival = '"+ arrival + "'");
 		List<Object[]> trains = mq.list();

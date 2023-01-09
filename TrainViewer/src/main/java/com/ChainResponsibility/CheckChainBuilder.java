@@ -16,14 +16,14 @@ public class CheckChainBuilder {
 	
 	public static CheckChain getChain(Strategy s) {
 		if (instance== null) {
+			CheckChain cs = new Contains();
 			CheckChain cd = new Contained();
-			CheckChain cs = new Contains(); 
 			cs.setNextChain(cd);
 			CheckChain cp = new ContainsPartial(); 
 			cp.setNextChain(cs);
 			CheckChain lev = new Levenshtein(2); 
 			lev.setNextChain(cp);
-			CheckChain jd = new JaroDistance(0.75); 
+			CheckChain jd = new JaroDistance(0.88); 
 			jd.setNextChain(lev);
 			CheckChain ei = new EqualsInputCS(); 
 			ei.setNextChain(jd);

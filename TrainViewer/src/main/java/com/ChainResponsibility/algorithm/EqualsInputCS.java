@@ -14,7 +14,7 @@ public class EqualsInputCS extends CheckChain {
 		//Prende il riferimento di country dal DB
 		for(String key: map.keySet()) {
 			if(map.get(key).contains(input)) {
-				//System.out.println("Trovato con equalsInput");
+				System.out.println("Trovato con equalsInput");
 				return key;
 			}
 		}

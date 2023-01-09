@@ -11,6 +11,7 @@
   	<generator class="increment"></generator>
   	</id>
   	<property name="matTrain" column="mat_train"></property>
+	<property name="hour" column="departure_train"></property>
   	<many-to-one name="departure" class="com.beans.Country" column="country_name" insert="false" update="false"></many-to-one>
   	<many-to-one name="arrival" class="com.beans.Country" column="country_name" insert="false" update="false"></many-to-one>
   	<many-to-one name="factory" class="com.beans.Factory" column="factory_code" insert="false" update="false"></many-to-one>

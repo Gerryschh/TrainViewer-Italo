@@ -43,27 +43,29 @@ public class SearchTrainServlet extends HttpServlet{
 		int idFactory = Integer.parseInt(id);
 		
 		String departure = request.getParameter("departure");
-		System.out.println("DEP " + departure);
 		String arrival = request.getParameter("arrival");
-		System.out.println("ARR " + arrival);
 		String correctDeparture = chain.check(departure);
-		System.out.println("STR CORRETTA PART " + correctDeparture);
 		String correctArrival = arrival;
 		//String correctArrival = chain.check(arrival);
 		//System.out.println("STR CORRETTA ARRIV " + correctArrival);
 		
 		HttpSession session = request.getSession(true);
+		session.setAttribute("departure", departure);
 		
 		if(correctDeparture == null) {
 			session.setAttribute("errorDeparture", "Paese di partenza inesistente");
+		} else {
+			session.setAttribute("correctDep", correctDeparture);
 		}
 		
 		if(correctArrival == null) {
 			session.setAttribute("errorArrival", "Paese di arrivo inesistente");
+		} else {
+			session.setAttribute("correctArr", correctArrival);
 		}
 		
 		if(correctDeparture != null && correctArrival != null) {
-			List<Train> collectionTrains = s.getTrainsWithParameter(idFactory, departure, arrival);
+			Collection<Train> collectionTrains = s.getTrainsWithParameter(idFactory, departure, arrival);
 			System.out.println("LIST TRENI SERVLET " +collectionTrains);
 			session.setAttribute("trainList", collectionTrains);
 			

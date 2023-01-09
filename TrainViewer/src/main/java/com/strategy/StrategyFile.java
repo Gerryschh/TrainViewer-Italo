@@ -129,7 +129,7 @@ public class StrategyFile implements Strategy {
 		return null;
 	}
 	@Override
-	public List<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
+	public Collection<Train> getTrainsWithParameter(int factory, String departure, String arrival) {
 		// TODO Auto-generated method stub
 		return null;
 	}

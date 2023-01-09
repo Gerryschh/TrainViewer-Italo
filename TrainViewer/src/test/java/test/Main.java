@@ -15,7 +15,8 @@ public class Main {
 		Strategy s= new StrategyDB();
 		Map<String, List<String>> map= s.dataMap();
 		CheckChain chain=CheckChainBuilder.getChain(s);
-		chain.check("china");
+		chain.check("spagna");
+		
 	}
 
 }
