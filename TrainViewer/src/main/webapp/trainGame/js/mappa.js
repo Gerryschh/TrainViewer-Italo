@@ -7,7 +7,7 @@ var energia = 0;
 
 // costanti e parametri per la configurazioen del gioco
 var PILLOLA = -10;
-var NEMICO = -15
+var NEMICO = -15;
 var SFONDO = 0;
 var MURO = -20;
 
@@ -29,6 +29,10 @@ var C = 20;
 // definizione id matrice, come array di array
 var piano = new Array();
 
+var timer1; 
+var timer2; 
+var timerTempo; 
+
 
 function mostraMatriceHTML() {
 	var s = '<table border="1" width="50%" heigth="50%">';
@@ -46,8 +50,9 @@ function mostraMatriceHTML() {
 
 
 function play() {
-	var audio = document.getElementById("myAudio");
-	audio.play();
+	// var audio = document.getElementById("myAudio");
+	// audio.play();
+	document.getElementById("playButton").disabled = true;
 	const pianoDiGioco = document.getElementById("pianoGioco");
 	pianoDiGioco.innerHTML = "";
 	for (var i = 0; i < R; i++) {
@@ -66,6 +71,10 @@ function play() {
 	piano[0][0] = 1;
 	piano[8][8] = MURO;
 	disegnaPiano();
+
+	timer1 = setInterval("om1.muovi()", 400);
+    timer2 = setInterval("om2.muovi()", 600);
+    timerTempo = setInterval("timer()", 50); 
 }
 
 function disegnaPiano() {
@@ -104,17 +113,17 @@ function disegnaCella(i, j) {
 	var id = "c" + i + "_" + j;
 	var src = "";
 	if (piano[i][j] > 0) {
-		src = pathImg + 1 + ".jpg";
+		src = pathImg + 1 + ".png";
 	} else if (piano[i][j] == PILLOLA) {
-		src = pathImg + "biglietto" + ".jpg";
+		src = pathImg + "ticket" + ".png";
 	} else if (piano[i][j] == -20) {
-		src = pathImg + 3 + ".jpg";
+		src = pathImg + 3 + ".png";
 	}
 	else if(piano[i][j] ==NEMICO){
-		src = pathImg + 2 + ".jpg";
+		src = pathImg + 2 + ".png";
 	}
 	else {
-		src = pathImg + 0 + ".jpg";
+		src = pathImg + "binario1" + ".png";
 	}
 	const pianoDiGioco = document.getElementById("pianoGioco");
 	if (document.getElementById(id)==null) {
@@ -131,7 +140,56 @@ function disegnaCella(i, j) {
 
 function disegnaCellaSpeciale(i, j, valore) {
 	const id = "c" + i + "_" + j;
-	const src = pathImg + valore + direzione + ".jpg";
+	const src = pathImg + valore + direzione + ".png";
 	console.log(id + " " + src);
 	document.getElementById(id).src = src;
 } 
+
+var barraWidth = 1000; 
+
+function timer(){
+
+    barraWidth-=2; 
+    
+    document.getElementById("tempo").innerHTML = barraWidth;
+	document.getElementById("tempo").style.width = barraWidth + "px"; 
+
+	if (barraWidth < 300 && barraWidth>100) {
+		var s = document.getElementById("tempo").style; 
+		s.backgroundColor = "#FFA500"; 
+	
+	} else if (barraWidth <= 100 && barraWidth>0) {
+		var s = document.getElementById("tempo").style; 
+		s.backgroundColor = "#FF0000"; 
+	
+	} else if (barraWidth<=0){
+		gameOver(); 
+	}
+	
+	
+}
+
+var energiaWidth = 0; 
+
+function incrementaEnergia(){
+    energiaWidth = (energiaWidth + 20); 
+	barraWidth = (barraWidth + 50);
+	if (barraWidth > 1000) {
+		barraWidth = 1000;
+	}
+    
+    document.getElementById("energia").innerHTML = energiaWidth;
+	document.getElementById("energia").style.width = energiaWidth + "px"; 
+
+}
+
+function nemicoColpito(){
+
+	if (energiaWidth != 0){
+		energiaWidth = (energiaWidth - 20)%800; 
+	}
+    
+    document.getElementById("energia").innerHTML = energiaWidth;
+	document.getElementById("energia").style.width = energiaWidth + "px"; 
+
+}

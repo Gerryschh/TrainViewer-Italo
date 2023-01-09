@@ -13,6 +13,7 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
+import com.beans.Score;
 import com.beans.Train;
 import com.beans.User;
 
@@ -122,6 +123,16 @@ public class StrategyFile implements Strategy {
 	}
 	@Override
 	public User checkUser(String email, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void addScore(String score, String userMail) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Collection<Score> getAllScore() {
 		// TODO Auto-generated method stub
 		return null;
 	}

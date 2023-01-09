@@ -14,14 +14,17 @@ import org.hibernate.query.NativeQuery;
 import com.beans.Alias;
 import com.beans.AliasUnknown;
 import com.beans.Country;
+import com.beans.Score;
 import com.beans.Train;
 import com.beans.User;
 import com.connectionDB.ConnectionToDB;
 import com.dao.AliasUnknownDao;
+import com.dao.ScoreDao;
 import com.dao.impl.AliasDaoImpl;
 import com.dao.impl.AliasUnknownDaoImpl;
 import com.dao.impl.TrainDaoImpl;
 import com.dao.impl.UserDaoImpl;
+import com.dao.impl.ScoreDaoImpl;
 
 public class StrategyDB implements Strategy{
 	//WIP serve l'RMI
@@ -30,6 +33,7 @@ public class StrategyDB implements Strategy{
 	private AliasDaoImpl aliasDao = new AliasDaoImpl();
 	private UserDaoImpl userDao = new UserDaoImpl();
 	private TrainDaoImpl trainDao = new TrainDaoImpl();
+	private ScoreDao scoreDao = new ScoreDaoImpl();
 	private Map<String,List<String>> dataMap;
 	public String getAliasCountry(String input) {
 		String query = "select nome_paese from alias where alias_paese = " + input;
@@ -68,6 +72,14 @@ public class StrategyDB implements Strategy{
 		trainDao.create(t);
 	}	
 
+	public void addScore(String score, String userMail) {
+		Score s = new Score();
+		s.setScore(score);
+		User u = new User();
+		u.setUserMail(userMail);
+		s.setUserMail(u);
+		scoreDao.create(s);
+	}
 
 	/*
 	 * METODI GET
@@ -172,6 +184,23 @@ public class StrategyDB implements Strategy{
 		}
 		return cu;
 	}
+	
+	public Collection<Score> getAllScore(){
+		Collection<Score> cs = new LinkedList <Score>();
+		NativeQuery<Object []> mq = session.createSQLQuery("Select * from score");
+		List<Object[]> score = mq.list();
+		
+		for(Object[] o: score) {
+			Score s = new Score();
+			s.setIdScore((int) o[0]);
+			s.setScore((String) o[1]);
+			User u = new User();
+			u.setUserMail((String) o[2]);
+			s.setUserMail(u);
+			cs.add(s);
+		}
+		return cs;
+	}
 
 	@Override
 	public User checkUser(String email, String password) {
@@ -192,9 +221,6 @@ public class StrategyDB implements Strategy{
 		return null;
 	}
 
-	//public insertScore(String username, String score) {
-		
-	//}
 
 	/*
 	 * METODI SET
@@ -211,4 +237,6 @@ public class StrategyDB implements Strategy{
 		}
 		aliasDao.getSession().close();
 	}
+
+
 }

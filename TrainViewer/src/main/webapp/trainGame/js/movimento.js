@@ -38,6 +38,7 @@ function controllaCella(x, y) {
 			return false;
 			break;
 		case PILLOLA:
+			incrementaEnergia();
 			biglietto.rewindAndPlay();
 			generaOggetto(PILLOLA);
 			testa++;
@@ -50,12 +51,13 @@ function controllaCella(x, y) {
 			break;
 		case NEMICO:
 			nemico.rewindAndPlay();
-			alert("Hai investito un passante!");
+			nemicoColpito();
 			return false;
 			break;
 		default:
 			if (val > 0) { // toccato il serpente
 				alert("Ti sei mangiato le mani, eheheh");
+				gameOver();
 				return false;
 			}
 			 else {
@@ -65,7 +67,15 @@ function controllaCella(x, y) {
 	}
 }
 
-
+function gameOver(){
+	document.getElementById("punteggio").innerHTML = "Ecco il tuo punteggio:" + energiaWidth;
+	document.getElementById("pianoGioco").innerHTML = "hai perso!"; 
+	// musichetta di gameOver
+	piano = null;
+	clearInterval(timer1); 
+	clearInterval(timer2); 
+	clearInterval(timerTempo); 
+} 
 
 
 function sposta(daX, daY, aX, aY) {
@@ -124,18 +134,9 @@ function controllaGameOver(x, y) {
 	check = check && (piano[(ominoX + 1 + R) % R][y] > 0||piano[(ominoX + 1 + R) % R][y] ==NEMICO); // giu
 	check = check && (piano[x][(ominoY - 1 + C) % C] > 0||piano[x][(ominoY - 1 + C) % C] ==NEMICO); // sinistra	
 	check = check && (piano[x][(ominoY + 1 + C) % C] > 0||piano[x][(ominoY + 1 + C) % C] ==NEMICO); // destra		
-	check= check &&  (piano[ominoX][ominoY]==NEMICO);
+	// check= check &&  (piano[ominoX][ominoY]==NEMICO);
 	if (check) {
 		alert("Game Over");
-	}
-}
-
-function controllaGameOverNemico() {
-	var check = true;
-
-	check= check &&  (piano[ominoX][ominoY]==NEMICO);
-	if (check) {
-		alert("Hai investito un pedone!");
 	}
 }
 
@@ -169,7 +170,6 @@ OggettoInMovimento.prototype.muovi = function () {
 	}
 	piano[this.x][this.y] = NEMICO;
 	disegnaCella(this.x, this.y);
-	controllaGameOverNemico();
 	mostraMatriceHTML();
 	var id = "c" + this.x + "_" + this.y;
 }

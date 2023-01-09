@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.beans.Alias;
 import com.beans.Country;
+import com.beans.Score;
 import com.beans.Train;
 import com.beans.User;
 
@@ -16,6 +17,7 @@ public interface Strategy {
 	public void addAliasUnknown(String input);
 	public void addUser(String userMail, String password, String userName);
 	public void addTrain(String matTrain, String departure, String arrival);
+	public void addScore(String score, String userMail);
 	
 	//Metodi GET
 	public Set<String> getCountryNames();
@@ -27,6 +29,7 @@ public interface Strategy {
 	public Collection<Train> getAllTrains();
 	public Collection<User> getAllUsers();
 	public User checkUser(String email, String password);
+	public Collection<Score> getAllScore();
 	
 	//Metodi SET
 	public void approveAlias(String[] list);

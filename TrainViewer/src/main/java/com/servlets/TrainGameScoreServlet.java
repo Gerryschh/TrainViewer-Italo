@@ -27,11 +27,12 @@ public class TrainGameScoreServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
-		String username = request.getParameter("username");
 		String score = request.getParameter("score");
+		String username = request.getParameter("score");
 
 		//metodo come checkuser
 		//User u = s.checkUser(email,password);
+		s.addScore(username, score);
 		
 		HttpSession session = request.getSession(true);
 		

@@ -1,14 +1,14 @@
 package com.beans;
 
 public class Score implements Bean {
-	private String idScore;
+	private int idScore;
 	private String score;
-	private String userMail;
+	private User userMail;
 
-	public String getIdScore() {
+	public int getIdScore() {
 		return idScore;
 	}
-	public void setIdScore(String idScore) {
+	public void setIdScore(int idScore) {
 		this.idScore = idScore;
 	}
 	public String getScore() {
@@ -17,10 +17,10 @@ public class Score implements Bean {
 	public void setScore(String score) {
 		this.score = score;
 	}
-	public String getUserMail() {
+	public User getUserMail() {
 		return userMail;
 	}
-	public void setUserMail(String userMail) {
+	public void setUserMail(User userMail) {
 		this.userMail = userMail;
 	}
 	

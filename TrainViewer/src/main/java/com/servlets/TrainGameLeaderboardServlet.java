@@ -21,30 +21,28 @@ public class TrainGameLeaderboardServlet extends HttpServlet{
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		StrategyDB s = new StrategyDB();
+		
+		
+		
+		
+		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		User u = s.checkUser(email,password);
 		HttpSession session = request.getSession(true);
 		session.setAttribute("email", email);
 		
-		if(u != null) {
-			session.setAttribute("username", u.getUserName());
-			session.setAttribute("isAdmin", u.isAdmin());
+		session.setAttribute("username", u.getUserName());
+		session.setAttribute("isAdmin", u.isAdmin());
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-			dispatcher.forward(request, response);
-		} else {
-			session.setAttribute("error", "");
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-			dispatcher.forward(request, response);
-		}
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 
